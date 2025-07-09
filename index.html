@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desktop</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <!-- Desktop Container -->
+    <div class="desktop">
+        <!-- Background -->
+        <div class="desktop-background"></div>
+        
+        <!-- Desktop Icons -->
+        <div class="desktop-icons">
+            <!-- Folder Icon -->
+            <div class="desktop-item folder" data-type="folder">
+                <div class="icon-container">
+                    <img src="assets/icons/folder.svg" alt="Folder" class="icon">
+                </div>
+                <span class="icon-label">папка</span>
+            </div>
+        </div>
+        
+        <!-- Dock -->
+        <div class="dock">
+            <div class="dock-container">
+                <div class="dock-item app" data-app="app1">
+                    <img src="assets/icons/app1.svg" alt="App 1" class="dock-icon">
+                </div>
+                <div class="dock-item app" data-app="app2">
+                    <img src="assets/icons/app2.svg" alt="App 2" class="dock-icon">
+                </div>
+                <div class="dock-item app" data-app="app3">
+                    <img src="assets/icons/app3.svg" alt="App 3" class="dock-icon">
+                </div>
+                <div class="dock-item app" data-app="app4">
+                    <img src="assets/icons/app4.svg" alt="App 4" class="dock-icon">
+                </div>
+            </div>
+        </div>
+        
+        <!-- Modal Windows -->
+        <div class="modal-overlay" id="modalOverlay">
+            <!-- App Modal -->
+            <div class="modal app-modal" id="appModal">
+                <div class="modal-header">
+                    <div class="window-controls">
+                        <button class="control-btn close-btn" id="closeBtn"></button>
+                        <button class="control-btn minimize-btn"></button>
+                        <button class="control-btn maximize-btn"></button>
+                    </div>
+                    <div class="modal-title" id="modalTitle">Application</div>
+                </div>
+                <div class="modal-content" id="modalContent">
+                    <!-- App content will be loaded here -->
+                </div>
+            </div>
+            
+            <!-- Folder Modal -->
+            <div class="modal folder-modal" id="folderModal">
+                <div class="modal-header">
+                    <div class="window-controls">
+                        <button class="control-btn close-btn" id="folderCloseBtn"></button>
+                        <button class="control-btn minimize-btn"></button>
+                        <button class="control-btn maximize-btn"></button>
+                    </div>
+                    <div class="modal-title">папка</div>
+                </div>
+                <div class="modal-content">
+                    <div class="folder-content">
+                        <div class="folder-item document-item" data-type="document">
+                            <div class="folder-icon-container">
+                                <img src="assets/icons/document.svg" alt="Document" class="folder-icon">
+                            </div>
+                            <span class="folder-item-label">привет.txt</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Text Document Modal -->
+            <div class="modal document-modal" id="documentModal">
+                <div class="modal-header">
+                    <div class="window-controls">
+                        <button class="control-btn close-btn" id="docCloseBtn"></button>
+                        <button class="control-btn minimize-btn"></button>
+                        <button class="control-btn maximize-btn"></button>
+                    </div>
+                    <div class="modal-title">привет.txt</div>
+                </div>
+                <div class="modal-content">
+                    <div class="text-document">
+                        <p>привет</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="scripts/main.js"></script>
+</body>
+</html>

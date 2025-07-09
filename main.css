@@ -1,0 +1,359 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+}
+
+/* Desktop Container */
+.desktop {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Desktop Background */
+.desktop-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #4a90e2 100%);
+    background-image: url('../assets/images/wallpaper.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 1;
+}
+
+/* Desktop Icons */
+.desktop-icons {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    padding: 20px;
+}
+
+.desktop-item {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+    transition: transform 0.2s ease;
+}
+
+.desktop-item:hover {
+    transform: scale(1.05);
+}
+
+.desktop-item.folder {
+    top: 40px;
+    left: 40px;
+}
+
+.icon-container {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.icon-label {
+    color: white;
+    font-size: 12px;
+    font-weight: 500;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7);
+    text-align: center;
+    max-width: 80px;
+    word-wrap: break-word;
+}
+
+/* Dock */
+.dock {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+}
+
+.dock-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.dock-item {
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.dock-item:hover {
+    transform: scale(1.1) translateY(-4px);
+}
+
+.dock-icon {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+}
+
+/* Modal Overlay */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-overlay.active {
+    display: flex;
+}
+
+/* Modal Windows */
+.modal {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(20px);
+    border-radius: 12px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+    min-width: 400px;
+    min-height: 300px;
+    max-width: 80vw;
+    max-height: 80vh;
+    display: none;
+    flex-direction: column;
+    animation: modalAppear 0.3s ease-out;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.modal.active {
+    display: flex;
+}
+
+@keyframes modalAppear {
+    from {
+        opacity: 0;
+        transform: scale(0.9) translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* Modal Header */
+.modal-header {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    background: rgba(246, 246, 246, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(224, 224, 224, 0.5);
+    position: relative;
+}
+
+.window-controls {
+    display: flex;
+    gap: 8px;
+    margin-right: 16px;
+}
+
+.control-btn {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+}
+
+.control-btn:hover {
+    opacity: 0.8;
+}
+
+.close-btn {
+    background: #ff5f57;
+}
+
+.minimize-btn {
+    background: #ffbd2e;
+}
+
+.maximize-btn {
+    background: #28ca42;
+}
+
+.modal-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Modal Content */
+.modal-content {
+    flex: 1;
+    padding: 20px;
+    overflow: auto;
+}
+
+/* Text Document Styles */
+.text-document {
+    font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+}
+
+.text-document p {
+    margin-bottom: 16px;
+}
+
+/* App Modal Specific Styles */
+.app-modal .modal-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: #666;
+}
+
+/* Folder Modal Specific Styles */
+.folder-modal {
+    min-width: 600px;
+    min-height: 450px;
+}
+
+.folder-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.folder-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+    transition: transform 0.2s ease;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.folder-item:hover {
+    transform: scale(1.05);
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.folder-icon-container {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.folder-icon {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.folder-item-label {
+    font-size: 12px;
+    font-weight: 500;
+    color: #333;
+    text-align: center;
+    max-width: 70px;
+    word-wrap: break-word;
+    line-height: 1.2;
+}
+
+/* Document Modal Specific Styles */
+.document-modal {
+    min-width: 500px;
+    min-height: 400px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .dock-container {
+        gap: 6px;
+        padding: 6px 12px;
+    }
+    
+    .dock-item {
+        width: 48px;
+        height: 48px;
+    }
+    
+    .dock-icon {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .modal {
+        min-width: 90vw;
+        min-height: 60vh;
+        margin: 20px;
+    }
+    
+    .desktop-item.folder {
+        top: 20px;
+        left: 20px;
+    }
+    
+    .icon-container {
+        width: 56px;
+        height: 56px;
+    }
+}

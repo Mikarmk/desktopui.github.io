@@ -21,6 +21,14 @@
                 </div>
                 <span class="icon-label">папка</span>
             </div>
+            
+            <!-- Task Document -->
+            <div class="desktop-item document" data-type="task-document" style="top: 40px; left: 150px;">
+                <div class="icon-container">
+                    <img src="assets/icons/document.svg" alt="Document" class="icon">
+                </div>
+                <span class="icon-label">задача на работу</span>
+            </div>
         </div>
         
         <!-- Dock -->
@@ -92,7 +100,58 @@
                 </div>
                 <div class="modal-content">
                     <div class="text-document">
-                        <p>привет</p>
+                        <p style="color: #ff4444; font-weight: bold; text-align: center; font-size: 16px;">🔒 ФАЙЛ ЗАШИФРОВАН 🔒</p>
+                        <p style="text-align: center; margin-top: 20px; color: #666;">требуется доступ 2 уровня</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Task Document Modal -->
+            <div class="modal document-modal" id="taskDocumentModal">
+                <div class="modal-header">
+                    <div class="window-controls">
+                        <button class="control-btn close-btn" id="taskDocCloseBtn"></button>
+                        <button class="control-btn minimize-btn"></button>
+                        <button class="control-btn maximize-btn"></button>
+                    </div>
+                    <div class="modal-title">задача на работу</div>
+                </div>
+                <div class="modal-content">
+                    <div class="text-document">
+                        <h3 style="text-align: center; margin-bottom: 20px; color: #333;">📋 ЗАДАЧА НА ДЕНЬ</h3>
+                        <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
+                            <thead>
+                                <tr style="background: rgba(0, 0, 0, 0.1);">
+                                    <th style="border: 1px solid #ccc; padding: 10px; text-align: left;">Отдел</th>
+                                    <th style="border: 1px solid #ccc; padding: 10px; text-align: left;">Работник</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="border: 1px solid #ccc; padding: 10px;">Лаборатория</td>
+                                    <td style="border: 1px solid #ccc; padding: 10px;">Химик</td>
+                                </tr>
+                                <tr>
+                                    <td style="border: 1px solid #ccc; padding: 10px;">Кабинет главного ученого</td>
+                                    <td style="border: 1px solid #ccc; padding: 10px;">Главный ученый</td>
+                                </tr>
+                                <tr>
+                                    <td style="border: 1px solid #ccc; padding: 10px;">Инженерная</td>
+                                    <td style="border: 1px solid #ccc; padding: 10px;">Инженер</td>
+                                </tr>
+                                <tr>
+                                    <td style="border: 1px solid #ccc; padding: 10px;">Кабинет юриста</td>
+                                    <td style="border: 1px solid #ccc; padding: 10px;">Юрист</td>
+                                </tr>
+                                <tr>
+                                    <td style="border: 1px solid #ccc; padding: 10px;">Охрана</td>
+                                    <td style="border: 1px solid #ccc; padding: 10px;">Охранник</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p style="margin-top: 20px; text-align: center; font-style: italic; color: #666;">
+                            Нужно пройти их в вашем порядке. Цель на день.
+                        </p>
                     </div>
                 </div>
             </div>
